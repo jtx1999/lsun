@@ -7,7 +7,7 @@ import json
 from os.path import join
 
 import subprocess
-import urllib2
+from urllib import request
 
 __author__ = 'Fisher Yu'
 __email__ = 'fy@cs.princeton.edu'
@@ -16,7 +16,7 @@ __license__ = 'MIT'
 
 def list_categories(tag):
     url = 'http://lsun.cs.princeton.edu/htbin/list.cgi?tag=' + tag
-    f = urllib2.urlopen(url)
+    f = request.urlopen(url)
     return json.loads(f.read())
 
 
