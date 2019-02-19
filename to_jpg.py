@@ -89,6 +89,8 @@ def main():
                         help='If enabled, the images are imported into output '
                              'directory directly instead of hierarchical '
                              'directories.')
+
+    parser.add_argument('--limit', type=int, default=-1)
     args = parser.parse_args()
 
     command = args.command
@@ -98,7 +100,7 @@ def main():
         if command == 'view':
             view(lmdb_path)
         elif command == 'export':
-            export_images(lmdb_path, args.out_dir, args.flat)
+            export_images(lmdb_path, args.out_dir, args.flat, args.limit)
 
 
 if __name__ == '__main__':
