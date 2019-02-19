@@ -41,7 +41,7 @@ def export_images(db_path, out_dir, flat=False, limit=-1):
         cursor = txn.cursor()
         for key, val in cursor:
             if not flat:
-                image_out_dir = join(out_dir, '/'.join(key[:6].decode()))
+                image_out_dir = join(out_dir, '/'.join(str(key[:6])))
             else:
                 image_out_dir = out_dir
             if not exists(image_out_dir):
